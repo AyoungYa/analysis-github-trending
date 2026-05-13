@@ -1,2 +1,2 @@
-# -analysis-github-trending
+# analysis-github-trending
 Github trending analysis
