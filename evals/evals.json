@@ -1,0 +1,20 @@
+{
+  "skill_name": "gh-trend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "分析今天 GitHub Trending 上 AI Agent 相关项目，给我一份中文简报。",
+      "expected_output": "应说明数据来源或联网限制，按项目给出价值判断、风险和行动建议，而不是只罗列仓库。"
+    },
+    {
+      "id": 2,
+      "prompt": "这个仓库 https://github.com/example/example 是否值得我花时间学习？",
+      "expected_output": "应使用单仓库深度分析结构，覆盖技术价值、工程成熟度、风险、适合人群和下一步验证动作。"
+    },
+    {
+      "id": 3,
+      "prompt": "帮我做一份本周 TypeScript 热门开源项目趋势周报，重点看 DevTools 方向。",
+      "expected_output": "应使用周报结构，按趋势分组，识别共同模式，并给出学习、试用、观察、跳过建议。"
+    }
+  ]
+}
