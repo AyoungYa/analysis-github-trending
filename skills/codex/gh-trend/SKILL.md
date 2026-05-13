@@ -15,6 +15,7 @@ Load only the files needed for the user request:
 - `../../../core/data-source-strategy.md` for data collection and uncertainty handling
 - `../../../core/scoring-rubric.md` for project scoring
 - `../../../core/report-templates.md` for output templates
+- `../../../scripts/fetch_trending.py` for optional structured GitHub Trending fetches
 
 If this skill is installed standalone, use the bundled copies instead:
 
@@ -22,11 +23,12 @@ If this skill is installed standalone, use the bundled copies instead:
 - `references/data-source-strategy.md`
 - `references/scoring-rubric.md`
 - `references/report-templates.md`
+- `scripts/fetch_trending.py`
 
 ## Operating procedure
 
 1. Determine the requested scope: time window, language, topic, and audience.
-2. Use available tools to collect current data if the user expects latest/trending information.
+2. Use available tools to collect current data if the user expects latest/trending information. If this repository is available and networking is allowed, prefer `python scripts/fetch_trending.py`. If the skill is installed standalone, use `python scripts/fetch_trending.py` from the skill directory.
 3. If live data is unavailable, ask for repository URLs or pasted Trending content.
 4. Evaluate candidate repositories with the scoring rubric.
 5. Produce the closest matching report template.

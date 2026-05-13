@@ -40,14 +40,18 @@ analysis-github-trending/
 │   ├── claude-code/
 │   │   └── gh-trend/
 │   │       ├── SKILL.md
+│   │       ├── scripts/
 │   │       └── references/
 │   └── codex/
 │       └── gh-trend/
 │           ├── SKILL.md
+│           ├── scripts/
 │           └── references/
 ├── examples/
 │   ├── daily-report.md
 │   └── repo-deep-dive.md
+├── scripts/
+│   └── fetch_trending.py
 └── evals/
     └── evals.json
 ```
@@ -72,15 +76,26 @@ analysis-github-trending/
 
 ## 第一版边界
 
-- 不内置强依赖脚本
+- `scripts/fetch_trending.py` 仅使用 Python 标准库，不依赖第三方包
 - 不假设所有平台都有联网能力
 - 不保证 GitHub Trending 页面抓取稳定
 - 支持用户直接提供仓库列表或 trending 页面内容
 - 报告默认中文输出，可按用户要求切换英文或中英双语
 
+## 抓取 Trending 数据
+
+```bash
+python scripts/fetch_trending.py --since daily --format markdown
+python scripts/fetch_trending.py --language python --since weekly --limit 10
+python scripts/fetch_trending.py --input-html trending.html --format json
+```
+
+脚本输出字段包括仓库名、URL、描述、语言、stars、forks、周期内 star 增量、时间范围和数据来源。GitHub Trending 没有官方 API，页面结构变化时脚本会失败并提示，不会编造数据。
+
+如果本机 Python 证书链异常，可显式加 `--insecure` 跳过 TLS 证书校验；默认不会跳过校验。
+
 ## 后续扩展
 
-- 增加 `scripts/fetch_trending.py`
 - 增加 Gemini、Trae、Clawbot 适配入口
 - 增加自动化周报模板
 - 增加可执行 eval，用于比较有无 skill 时的分析质量

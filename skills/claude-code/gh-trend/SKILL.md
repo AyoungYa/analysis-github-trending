@@ -15,6 +15,7 @@ Read these files as needed:
 - `../../../core/data-source-strategy.md`: how to get or validate trending data
 - `../../../core/scoring-rubric.md`: 100-point evaluation rubric
 - `../../../core/report-templates.md`: report formats
+- `../../../scripts/fetch_trending.py`: optional structured GitHub Trending fetches
 
 If this skill is installed standalone, use the bundled copies instead:
 
@@ -22,6 +23,7 @@ If this skill is installed standalone, use the bundled copies instead:
 - `references/data-source-strategy.md`
 - `references/scoring-rubric.md`
 - `references/report-templates.md`
+- `scripts/fetch_trending.py`
 
 ## Default behavior
 
@@ -32,7 +34,7 @@ When the user asks for GitHub Trending analysis:
    - Language/topic: use the user's requested filter if present
    - Output language: Chinese by default unless the user asks otherwise
    - Persona: developer by default
-2. Gather data from user input or available browsing/search tools.
+2. Gather data from user input or available browsing/search tools. If this repository is available and networking is allowed, prefer `python scripts/fetch_trending.py`. If the skill is installed standalone, use `python scripts/fetch_trending.py` from the skill directory.
 3. If current data cannot be verified, state the limitation and ask for a repo list or page content.
 4. Analyze using the core framework.
 5. Output a structured report with conclusion, evidence, risks, and next actions.

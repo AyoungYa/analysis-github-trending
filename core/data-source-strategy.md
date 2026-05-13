@@ -10,13 +10,16 @@ GitHub Trending 没有稳定官方 API。执行分析时，优先使用用户提
 2. 平台内置联网搜索或浏览器  
    访问 `https://github.com/trending`，根据用户要求选择语言和时间范围，例如 daily、weekly、monthly。
 
-3. GitHub 仓库页面和 README  
+3. 本项目脚本  
+   如果当前平台允许运行本地脚本和联网，优先使用 `scripts/fetch_trending.py` 获取结构化候选列表。该脚本只依赖 Python 标准库，也支持 `--input-html` 解析用户提供的 Trending HTML。
+
+4. GitHub 仓库页面和 README  
    对入选仓库逐个补充 README、stars、forks、issues、releases、commit 活跃度、license、主要贡献者等信息。
 
-4. 第三方趋势源  
+5. 第三方趋势源  
    可参考 Trendshift、HelloGitHub、GitHub Explore、Hacker News、Reddit、X、Product Hunt 等，但必须标注为辅助信号。
 
-5. 估算或缺失处理  
+6. 估算或缺失处理  
    如果无法联网或信息不足，明确写出“数据不足”，不要编造 star 增量、发布时间、融资、用户量或 benchmark。
 
 ## 推荐采集字段
